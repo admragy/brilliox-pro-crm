@@ -1,23 +1,15 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.10"
-      }
-    },
-    {
-      "src": "static/**",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "templates/**",
-      "use": "@vercel/static"
+  "$schema": "https://openapi.vercel.sh/2.0/file.json",
+  "framework": "fastapi",
+  "buildCommand": "python -m pip install -r requirements.txt",
+  "outputDirectory": ".",
+  "installCommand": "python -m pip install -r requirements.txt",
+  "devCommand": "python main.py",
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 30
     }
-  ],
+  },
   "routes": [
     {
       "src": "/static/(.*)",
@@ -33,6 +25,5 @@
   "env": {
     "PYTHONPATH": ".",
     "PYTHONUNBUFFERED": "1"
-  },
-  "framework": "fastapi"
+  }
 }
