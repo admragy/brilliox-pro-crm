@@ -149,29 +149,14 @@ async def root():
     """)
 
 
-# ==================== الأحداث ====================
-
-@app.on_event("startup")
-async def startup_event():
-    """تشغيل عند بدء التطبيق"""
-    print("Starting Brilliox Pro CRM v7.0...")
-
-    # تهيئة قاعدة البيانات
+# تهيئة النظام عند الاستيراد (لـ Vercel)
+try:
+    print("Initializing Brilliox Pro CRM v7.0...")
     init_db()
-
-    # تهيئة النظام الموحد
     unified_system.initialize()
-
-    print("System ready!")
-
-
-@app.on_event("shutdown")
-async def shutdown_event():
-    """إيقاف عند إغلاق التطبيق"""
-    print("Shutting down...")
-
-    if unified_system:
-        unified_system.emit(SystemEvent.SYSTEM_SHUTDOWN, {"time": "shutdown"})
+    print("System ready for Vercel!")
+except Exception as e:
+    print(f"Initialization warning: {e}")
 
 
 # ==================== تشغيل التطبيق ====================
