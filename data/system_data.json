@@ -1,0 +1,24 @@
+{
+  "state": {
+    "initialized_at": "2025-12-25T23:02:01.627642",
+    "version": "7.0.0",
+    "total_events": 1,
+    "active_users": 0,
+    "total_leads": 0,
+    "conversion_rate": 0.0,
+    "system_status": "ready"
+  },
+  "rules": [
+    {
+      "id": "auto_score_new_leads",
+      "name": "تقييم العملاء الجدد تلقائياً",
+      "action": "score_lead"
+    },
+    {
+      "id": "notify_admin_on_hot_lead",
+      "name": "إشعار الأدمن عند عميل ساخن",
+      "action": "notify_admin"
+    }
+  ],
+  "patterns": []
+}

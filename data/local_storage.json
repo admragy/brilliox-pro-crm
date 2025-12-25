@@ -1,0 +1,29 @@
+{
+  "users": {
+    "test_user": {
+      "username": "test_user",
+      "wallet_balance": 100,
+      "is_admin": false,
+      "password": null,
+      "created_at": "2025-12-25T22:57:24.386218",
+      "id": "test_user"
+    }
+  },
+  "leads": {
+    "59a0c1f9": {
+      "name": "عميل اختبار",
+      "phone": "0123456789",
+      "email": "test@example.com",
+      "status": "new",
+      "notes": null,
+      "source": "manual",
+      "campaign": null,
+      "score": 0,
+      "user_id": "test_user",
+      "id": "59a0c1f9",
+      "created_at": "2025-12-25T22:57:24.407101"
+    }
+  },
+  "campaigns": {},
+  "settings": {}
+}
