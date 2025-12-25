@@ -6,10 +6,12 @@ import sys
 import os
 
 # Add the project root to the Python path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
 # Import the FastAPI app
 from app.main import app
 
-# Export the app object for Vercel's Python runtime
-handler = app
+# For Vercel's Python runtime, we need to export the app as 'app'
+app = app

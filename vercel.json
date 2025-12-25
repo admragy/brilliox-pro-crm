@@ -1,15 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/2.0/file.json",
   "framework": "fastapi",
-  "buildCommand": "python -m pip install -r requirements.txt",
-  "outputDirectory": ".",
-  "installCommand": "python -m pip install -r requirements.txt",
+  "buildCommand": "pip install -r requirements.txt",
+  "installCommand": "pip install -r requirements.txt",
   "devCommand": "python main.py",
-  "functions": {
-    "api/index.py": {
-      "maxDuration": 30
-    }
-  },
+  "outputDirectory": "public",
   "routes": [
     {
       "src": "/static/(.*)",
@@ -19,7 +14,8 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/api/index.py"
+      "dest": "/api/index.py",
+      "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
     }
   ],
   "env": {
